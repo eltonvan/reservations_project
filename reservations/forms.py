@@ -9,25 +9,18 @@ class ReservationsForm(forms.ModelForm):
         widgets = {
             'start_date': forms.DateInput(attrs={'class': 'form-control my-5'}),
             'end_date': forms.DateInput(attrs={'class': 'form-control my-5'}),
-            'num_guests': forms.IntegerField(attrs={'class': 'form-control my-5'}),
-            'fname': forms.CharField(attrs={'class': 'form-control mb-5'}),
-            'lname': forms.CharField(attrs={'class': 'form-control mb-5'}),
-            'company': forms.CharField(attrs={'class': 'form-control mb-5'}),
+            'num_guests': forms.NumberInput(attrs={'class': 'form-control my-5'}),
+            'fname': forms.TextInput(attrs={'class': 'form-control mb-5'}),
+            'lname': forms.TextInput(attrs={'class': 'form-control mb-5'}),
+            'company': forms.TextInput(attrs={'class': 'form-control mb-5'}),
             'email': forms.EmailInput(attrs={'class': 'form-control mb-5'}),
             'purpose': forms.Select(attrs={'class': 'form-control mb-5'}),
-            't_sum': forms.DecimalField(attrs={'class': 'form-control mb-5'}),
-            'commission': forms.DecimalField(attrs={'class': 'form-control mb-5'}),
-            'rech_num': forms.CharField(attrs={'class': 'form-control mb-5'}),
+            't_sum': forms.NumberInput(attrs={'class': 'form-control mb-5'}),
+            'commission': forms.NumberInput(attrs={'class': 'form-control mb-5'}),
+            'rech_num': forms.TextInput(attrs={'class': 'form-control mb-5'}),
             'link_reservation': forms.URLInput(attrs={'class': 'form-control mb-5'}),
-            'guest_document': forms.FileInput(attrs={'class': 'form-control mb-5'}),
+            'guest_document': forms.ClearableFileInput(attrs={'class': 'form-control mb-5'}),
             'apartment': forms.Select(attrs={'class': 'form-control mb-5'}),
             'platform': forms.Select(attrs={'class': 'form-control mb-5'}),
-
         }
-        labels = {'start_date': 'check in', 'end_date': 'checkout', 'num_guests': 'number of guests', 'fname': 'first name', 'lname': 'last name', 'email': 'email', 'purpose': 'purpose', 'company': 'company', 't_sum': 'total sum', 'commission': 'commission', 'rech_num': 'rechnung number', 'link_reservation': 'link reservation', 'guest_document': 'guest document', 'apartment': 'apartment', 'platform': 'platform'}
-    
-    # def clean_title(self):
-    #     title = self.cleaned_data['title']
-    #     if 'django' in title:
-    #         raise ValidationError('We do not accept notes about django ') 
-    #     return title
+        labels = {'start_date': 'Check-in', 'end_date': 'Checkout', 'num_guests': 'Number of Guests', 'fname': 'First Name', 'lname': 'Last Name', 'email': 'Email', 'purpose': 'Purpose', 'company': 'Company', 't_sum': 'Total Sum', 'commission': 'Commission', 'rech_num': 'Rechnung Number', 'link_reservation': 'Link Reservation', 'guest_document': 'Guest Document', 'apartment': 'Apartment', 'platform': 'Platform'}

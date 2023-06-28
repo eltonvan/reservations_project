@@ -37,9 +37,10 @@ class Reservation(models.Model):
     purpose = models.CharField(max_length=255)
     company = models.CharField(max_length=255)
     t_sum = models.DecimalField(max_digits=10, decimal_places=2)
-    commision = models.DecimalField(max_digits=10, decimal_places=2)
+    commission = models.DecimalField(max_digits=10, decimal_places=2)
     rech_num = models.CharField(max_length=255)
     platform = models.ForeignKey(Platform, on_delete=models.CASCADE)
+    link_reservation = models.URLField()
     guest_document = models.FileField(upload_to='guest_documents/') 
     link = models.URLField()
 

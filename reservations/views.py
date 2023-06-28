@@ -17,19 +17,19 @@ from .models import Reservation
 
 class ResDeleteView(DeleteView):
     model = Reservation 
-    success_url = '/reservations_project/reservations'
-    template_name = 'reservations/res_delete.html'
+    success_url = '/reservations'
+    template_name = 'res_delete.html'
    
 
-class NotesUpdateView(UpdateView):
+class ResUpdateView(UpdateView):
     model = Reservation
-    success_url = '/reservations_project/reservations'
+    success_url = '/reservations'
     form_class = ReservationsForm
 
-class NotesCreateView(CreateView):
+class ResCreateView(CreateView):
     model = Reservation
-    #fields = ['title', 'text']
-    success_url = '/reservations_project/reservations'
+   # template_name = 'res_form.html'
+    success_url = '/reservations'
     form_class = ReservationsForm
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
@@ -39,20 +39,20 @@ class NotesCreateView(CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class NotesListView(LoginRequiredMixin, ListView):
+class ResListView(LoginRequiredMixin, ListView):
     model = ReservationsForm
-    template_name = 'reservations/res_list.html'
+    template_name = 'res_list.html'
     context_object_name = 'reservations'
     login_url = '/admin' # redirect not logged in users
     #paginate_by = 10
     def get_queryset(self) -> QuerySet[Any]:
-        return self.request.user.notes.all()
+        return self.request.user.reservations.all()
 
 
 
-class NotesDetailView(DetailView):
+class ResDetailView(DetailView):
     model = Reservation
-    context_object_name = 'reservation'
+    context_object_name = 'reservations'
 
 
 
