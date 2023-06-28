@@ -1,0 +1,23 @@
+
+
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-5">reservation list:</h1>
+
+        <div class="row row-cols3 g-2"> 
+            {% for res in reservations %}
+            <div class="col"> 
+                <div class="p-3 border">
+                    <a href="{% url 'notes.detail' pk=note.id %}" class="text-dark text-decoration-non">
+                        <h3>{{res.title}}</h3>
+                    </a>
+                    {{note.text|truncatechars:10}}
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+{% endblock %}
