@@ -17,7 +17,7 @@ class ReservationsForm(forms.ModelForm):
         model = Reservation
         fields = ['start_date', 'end_date', 'num_guests', 'fname', 'lname', 'email', 'purpose', 'company', 't_sum', 'commission', 'rech_num', 'link_reservation', 'guest_document', 'apartment', 'platform']
         widgets = {
-            #'end_date': forms.DateInput(attrs={'class': 'form-control my-5'}),
+            'end_date': forms.DateInput(attrs={'class': 'form-control my-5'}),
             'num_guests': forms.NumberInput(attrs={'class': 'form-control my-5'}),
             'fname': forms.TextInput(attrs={'class': 'form-control mb-5'}),
             'lname': forms.TextInput(attrs={'class': 'form-control mb-5'}),

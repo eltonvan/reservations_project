@@ -4,11 +4,11 @@
 <div class = 'border rounded p-3 my-5'>
 
     
-<h1 class="my-5">{{note.title}}</h1>
+<h1 class="my-5">{reservations.fname}</h1>
 
-    <p>{{note.text}}</p>
-    <a href="{% url 'notes.list' %}" class="btn btn-secondary my-5">back</a>
-    <a href="{% url 'notes.update' pk=note.id %}" class="btn btn-secondary">edit</a>
-    <a href="{% url 'notes.delete' pk=note.id %}" class="btn btn-danger">delete</a>
+    <p>{{reservations.name}}</p>
+    <a href="{% url 'reservations.list' %}" class="btn btn-secondary my-5">back</a>
+    <a href="{% url 'reservations' pk=reservations.id %}" class="btn btn-secondary">edit</a>
+    <a href="{% url 'reservations' pk=reservations.id %}" class="btn btn-danger">delete</a>
 {% endblock %}
     
