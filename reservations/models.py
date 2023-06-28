@@ -43,6 +43,7 @@ class Reservation(models.Model):
     link_reservation = models.URLField()
     guest_document = models.FileField(upload_to='guest_documents/') 
     link = models.URLField()
+    user= models.ForeignKey(User, on_delete=models.CASCADE, related_name='reservations')
 
     def __str__(self):
         return f"Reservation {self.id}"

@@ -11,7 +11,7 @@ from django.shortcuts import redirect
 
 class SignupView(CreateView):
     form_class = UserCreationForm
-    template_name = 'register.html'
+    template_name = 'home/register.html'
     success_url = '/home'
 
     def get(self,request, *args, **kwargs):
@@ -20,18 +20,18 @@ class SignupView(CreateView):
         return super().get(request,*args, **kwargs)
 
 class LogoutInterfaceView(LogoutView):
-    template_name = 'logout.html'
+    template_name = 'home/logout.html'
 
 class LoginInterfaceView(LoginView):
-    template_name = 'login.html'
+    template_name = 'home/login.html'
 
 class HomeView(TemplateView):
-    template_name = 'welcome.html'
+    template_name = 'home/welcome.html'
     extra_context = {'today': datetime.today()}
 
 
 class AuthorizedView(LoginRequiredMixin, TemplateView):
-    template_name = 'authorized.html'
+    template_name = 'home/authorized.html'
     login_url = '/login'
 
 

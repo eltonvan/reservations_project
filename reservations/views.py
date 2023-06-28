@@ -18,7 +18,7 @@ from .models import Reservation
 class ResDeleteView(DeleteView):
     model = Reservation 
     success_url = '/reservations'
-    template_name = 'res_delete.html'
+    template_name = 'booking/res_delete.html'
    
 
 class ResUpdateView(UpdateView):
@@ -28,7 +28,7 @@ class ResUpdateView(UpdateView):
 
 class ResCreateView(CreateView):
     model = Reservation
-   # template_name = 'res_form.html'
+    template_name = 'booking/res_form.html'
     success_url = '/reservations'
     form_class = ReservationsForm
 
@@ -41,7 +41,7 @@ class ResCreateView(CreateView):
 
 class ResListView(LoginRequiredMixin, ListView):
     model = ReservationsForm
-    template_name = 'res_list.html'
+    template_name = 'booking/res_list.html'
     context_object_name = 'reservations'
     login_url = '/admin' # redirect not logged in users
     #paginate_by = 10
@@ -52,7 +52,7 @@ class ResListView(LoginRequiredMixin, ListView):
 
 class ResDetailView(DetailView):
     model = Reservation
-    context_object_name = 'reservations'
+    context_object_name = 'reservation'
 
 
 
